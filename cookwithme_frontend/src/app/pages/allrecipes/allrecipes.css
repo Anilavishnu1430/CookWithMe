@@ -1,0 +1,9 @@
+.recipe-img{
+  height: 200px;
+  object-fit: cover;
+}
+.filter-select{
+  border: none !important;
+  box-shadow: none !important;
+  background-color: transparent;
+}

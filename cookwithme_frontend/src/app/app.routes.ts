@@ -1,0 +1,28 @@
+import { Routes } from '@angular/router';
+import { LandingPage } from './pages/landing-page/landing-page';
+import { Login } from './pages/login/login';
+import { Register } from './pages/register/register';
+import { Allrecipes } from './pages/allrecipes/allrecipes';
+import { Viewrecipe } from './pages/viewrecipe/viewrecipe';
+import { Userprofile } from './pages/userprofile/userprofile';
+
+export const routes: Routes = [
+    {
+        path:'',component:LandingPage
+    },
+    {
+        path:'login',component:Login
+    },
+    {
+        path:'register',component:Register
+    },
+    {
+        path:'allrecipes',component:Allrecipes
+    },
+    {
+        path:'viewrecipe',component:Viewrecipe
+    },
+    {
+        path:'userprofile',component:Userprofile
+    }
+];
