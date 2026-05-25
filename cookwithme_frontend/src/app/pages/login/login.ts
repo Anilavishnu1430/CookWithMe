@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 export class Login {
   private fb = inject(FormBuilder)
   private apiService = inject(Api)
-    private router = inject(Router)
+  private router = inject(Router)
 
   loginForm =this.fb.group({
     email:["",[Validators.required,Validators.email]],

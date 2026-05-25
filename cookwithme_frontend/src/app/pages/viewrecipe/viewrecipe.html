@@ -1,43 +1,41 @@
 <div class="row m-5">
     <div class="mb-4 text-start">
-        <button class="btn">Back to recipe list</button>
+        <button class="btn border border-2" routerLink="/allrecipes">
+            Back to recipe list
+        </button>
     </div>
     <div class="col-md-5">
-        <img src="https://evergreenkitchen.ca/wp-content/uploads/2024/03/Blueberry-Raspberry-Smoothie-Evergreen-Kitchen-1.jpg"
+        <img [src]="recipeDetails.image"
             class="img-fluid rounded" alt="Blueberry Banana Smoothie">
-        <div class="d-flex gap-3 mt-3 justify-content-between">
+        <div class="d-flex gap-3 mt-5 justify-content-between">
             <button class="btn btn-success">Download Recipe</button>
             <button class="btn btn-primary">Save Recipe</button>
         </div>
     </div>
     <div class="col-md-7">
-        <h2 class="text-center">Blueberry Banana Smoothie</h2>
+        <h2 class="text-center text-warning">{{recipeDetails.name}}</h2>
 
-        <div class="d-flex align-items-center justify-content-evenly mb-3 mt-5">
-            <p><strong>Cuisine:</strong> Smoothie</p>
-            <p><strong>Servings:</strong> 1</p>
-            <p><strong>Mode of Cooking:</strong> Easy</p>
+        <div class="d-flex align-items-center justify-content-evenly mt-3">
+            <p><strong>Cuisine:</strong> {{recipeDetails.cuisine}}</p>
+            <p><strong>Servings:</strong> {{recipeDetails.servings}}</p>
+            <p><strong>Mode of Cooking:</strong> {{recipeDetails.difficulty}}</p>
         </div>
-        <div class="d-flex align-items-center justify-content-evenly gap-4 mb-4">
-            <p><strong>Preparation Time:</strong> 10 min</p>
-            <p><strong>Cooking Time:</strong> 0 min</p>
-            <p><strong>Calories:</strong> 220</p>
+        <div class="d-flex align-items-center justify-content-evenly gap-4 mb-1">
+            <p><strong>Preparation Time:</strong> {{recipeDetails.prepTimeMinutes}} min</p>
+            <p><strong>Cooking Time:</strong> {{recipeDetails.cookTimeMinutes}} min</p>
+            <p><strong>Calories:</strong> {{recipeDetails.caloriesPerServing}}</p>
         </div>
-        <h4>Ingredients Needed</h4>
+        <h4 class="text-warning">Ingredients Needed</h4>
         <ol>
-            <li>Blueberries, fresh or frozen</li>
-            <li>Banana, peeled and sliced</li>
-            <li>Greek yogurt</li>
-            <li>Almond milk</li>
-            <li>Honey</li>
-            <li>Chia seeds (optional)</li>
+            @for(item of recipeDetails.ingredients; track $index){
+                <li>{{item}}</li>
+            }
         </ol>
-        <h4 class="mt-4">Cooking Instruction</h4>
+        <h4 class="mt-2 text-warning">Cooking Instruction</h4>
         <ol>
-            <li>In a blender, combine blueberries, banana, Greek yogurt, almond milk, and honey.</li>
-            <li>Blend until smooth and creamy.</li>
-            <li>Add chia seeds for extra nutrition and blend briefly.</li>
-            <li>Pour into a glass and enjoy!</li>
+            @for(item of recipeDetails.instructions; track $index){
+                <li>{{item}}</li>
+            }
         </ol>
 
     </div>

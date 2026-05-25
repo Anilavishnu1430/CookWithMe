@@ -13,6 +13,9 @@ router.post('/register', userController.registerUser)
 router.post('/login', userController.loginUser)
 
 // Get All Recipes
-//router.get('/recipes', jwtMiddleware, recipeController.getRecipes)
+router.get('/recipes', recipeController.getAllRecipes)
+
+// Get A Recipe
+router.get('/getarecipe/:id', recipeController.getARecipe)
 
 module.exports = router

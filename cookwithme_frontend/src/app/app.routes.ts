@@ -20,7 +20,7 @@ export const routes: Routes = [
         path:'allrecipes',component:Allrecipes
     },
     {
-        path:'viewrecipe',component:Viewrecipe
+        path:'viewrecipe/:id',component:Viewrecipe
     },
     {
         path:'userprofile',component:Userprofile
