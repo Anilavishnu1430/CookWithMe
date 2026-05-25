@@ -1,5 +1,6 @@
 const users = require('../models/userModel');
 const jwt = require('jsonwebtoken')
+const bcrypt = require('bcrypt')
 
 //Register Logic implemented
 exports.registerUser=async(req,res)=>{
@@ -11,7 +12,10 @@ exports.registerUser=async(req,res)=>{
             res.status(401).json({message:"User Already Existing..."})
         }
         else{
-            const newUser = new users({username,email,password})
+            //password encryption
+            const encryptedPassword = await bcrypt.hash(password,10)
+            const newUser = new users({username,email,password:encryptedPassword})
+
             await newUser.save()
             res.status(201).json({message:"User Registered Successfully...",newUser})
         }
@@ -28,7 +32,8 @@ exports.loginUser=async(req,res)=>{
     try{
         const existingUser = await users.findOne({email})
         if(existingUser){
-           if(existingUser.password===password){
+            const userPassword = await bcrypt.compare(password,existingUser.password)
+           if(existingUser.password===password || userPassword){
             const token = jwt.sign({userMail:existingUser.email,userId:existingUser._id},process.env.JWT_SECRET)
                 console.log(token);
                 res.status(200).json({message:"Login Successfull..",existingUser,token})

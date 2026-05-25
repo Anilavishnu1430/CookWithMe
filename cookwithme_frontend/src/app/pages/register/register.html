@@ -20,25 +20,25 @@
           Create Account
         </h2>
 
-        <form>
+        <form [formGroup]="registerForm" (ngSubmit)="register()">
 
           <div class="mb-3">
             <label>Full Name</label>
-            <input type="text" class="form-control" placeholder="Enter your name">
+            <input formControlName="username" type="text" class="form-control" placeholder="Enter your name">
           </div>
 
           <div class="mb-3">
             <label>Email Address</label>
-            <input type="email" class="form-control" placeholder="Enter your email">
+            <input formControlName="email" type="email" class="form-control" placeholder="Enter your email">
           </div>
 
           <div class="mb-3">
             <label>Password</label>
-            <input type="password" class="form-control" placeholder="Enter your password">
+            <input formControlName="password" type="password" class="form-control" placeholder="Enter your password">
           </div>
 
 
-          <button type="button" class="btn btn-warning w-100 mb-3">
+          <button type="submit" class="btn btn-warning w-100 mb-3">
             Register
           </button>
 
