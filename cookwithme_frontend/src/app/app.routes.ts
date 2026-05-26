@@ -8,6 +8,9 @@ import { Userprofile } from './pages/userprofile/userprofile';
 
 export const routes: Routes = [
     {
+        path:'admin' , loadChildren:()=>import('./admin/admin-module').then(m=>m.AdminModule)
+    },
+    {
         path:'',component:LandingPage
     },
     {
