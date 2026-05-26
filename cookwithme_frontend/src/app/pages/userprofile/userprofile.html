@@ -28,40 +28,25 @@
         <div class="d-flex justify-content-between mb-3">
           <h4>Downloaded Recipes 🍽</h4>
           <span class="bg-warning text-black p-2 fw-semibold rounded">
-            3 Recipes
+            {{downloadList.length}} Recipes
           </span>
         </div>
 
         <div class="row">
-          <div class="col-md-4 mb-3">
+          @for (item of downloadList; track $index) {
+            <div class="col-md-4 mb-3">
             <div class="card h-100">
-              <img src="https://www.allrecipes.com/thmb/ziUOvj4f_me5yvZhYCUy0n4IKbQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/276725-creamy-chicken-alfredo-VAT-001-Beauty-4x3-c4b026db5cb349f4b8fd627c56f91a42.jpg"
+              <img [src]="item.image" alt=""
                    class="card-img-top recipe-img">
               <div class="card-body">
-                <h6>Chicken Alfredo Pasta</h6>
+                <h6>{{item.name}}</h6>
+                <h6><i class="fa-solid fa-trash" (click)="deleteRecipe(item._id)"></i></h6>
               </div>
             </div>
           </div>
+          }
 
-          <div class="col-md-4 mb-3">
-            <div class="card h-100">
-              <img src="https://au.ooni.com/cdn/shop/articles/20220211142645-margherita-9920.jpg?v=1737368217&width=1080"
-                   class="card-img-top recipe-img">
-              <div class="card-body">
-                <h6>Classic Margherita Pizza</h6>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-4 mb-3">
-            <div class="card h-100">
-              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsds8Tx72QvFQ9bCdankD1_1WXjZaD1aA1rg&s"
-                   class="card-img-top recipe-img">
-              <div class="card-body">
-                <h6>Mango Salsa Chicken</h6>
-              </div>
-            </div>
-          </div>
+          
 
         </div>
 

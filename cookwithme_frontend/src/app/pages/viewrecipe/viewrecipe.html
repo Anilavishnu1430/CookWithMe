@@ -8,7 +8,7 @@
         <img [src]="recipeDetails.image"
             class="img-fluid rounded" alt="Blueberry Banana Smoothie">
         <div class="d-flex gap-3 mt-5 justify-content-between">
-            <button class="btn btn-success">Download Recipe</button>
+            <button (click)="addDownload()" class="btn btn-success">Download Recipe</button>
             <button class="btn btn-primary">Save Recipe</button>
         </div>
     </div>

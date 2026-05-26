@@ -5,9 +5,9 @@ const jwtMiddleware = (req,res,next) =>{
     try{
         const token =  req.headers.authorization.slice(7)
         console.log(token);
-        jwtverification = jwt.verify(token,process.env.jwtKey)
+        jwtverification = jwt.verify(token,process.env.JWT_SECRET)
         console.log(jwtverification);
-        req.payload = jwtverification.userMail
+        req.payload = jwtverification.userId
         next()
     }
     catch(err){

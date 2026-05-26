@@ -27,8 +27,10 @@ export class Login {
       this.apiService.loginAPI({email,password}).subscribe({
         next:(res:any)=>{
         alert(res.message)
+        let token = res.token
+        sessionStorage.setItem("token",token)
         console.log(res);
-        
+          sessionStorage.setItem("user",JSON.stringify(res.existingUser))
         this.router.navigateByUrl("/allrecipes")
       },error:(err:any)=>{
         alert(err.error.message)
