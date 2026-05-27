@@ -50,4 +50,12 @@ export class Api {
    return this.http.delete(`${this.serverUrl}/deletedownload/${id}`,this.appendToken())
   }
 
+  deleteRecipeAPI(id:any){
+   return this.http.delete(`${this.serverUrl}/deleterecipe/${id}`,this.appendToken())
+  }
+
+  getUserlistAPI(){
+   return this.http.get(`${this.serverUrl}/getallusers`,this.appendToken())
+  }
+
 }

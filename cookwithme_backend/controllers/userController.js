@@ -50,3 +50,14 @@ exports.loginUser=async(req,res)=>{
         res.status(500).json({message :"Server err",err})
     }
 }
+
+exports.getAllUsers=async(req,res)=>{
+    console.log("Inside the get All Users");
+    try{
+        const getAllUsers = await users.find({role:{$nin: ["admin"]}})
+        res.status(200).json({ message:"All Users fetched",getAllUsers })
+    }
+    catch(err){
+        res.status(500).json({ message:"server err "+err })
+    }
+}

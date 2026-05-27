@@ -1,9 +1,11 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { Api } from '../../services/api';
+import { Header } from "../../components/header/header";
+import { Footer } from "../../components/footer/footer";
 
 @Component({
   selector: 'app-userprofile',
-  imports: [],
+  imports: [Header, Footer],
   templateUrl: './userprofile.html',
   styleUrl: './userprofile.css',
 })

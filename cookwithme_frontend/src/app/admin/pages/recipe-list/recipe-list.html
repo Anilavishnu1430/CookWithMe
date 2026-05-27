@@ -1,8 +1,14 @@
-<div class="container-fluid p-4 vh-100">
+<app-admin-header></app-admin-header>
+<div class="row">
+    <div class="col-2">
+        <app-sidebar></app-sidebar>
+    </div>
+    <div class="col-10">
+        <div class="container-fluid p-4 vh-100">
     <h1 class="text-center text-warning mb-5">All Recipe List</h1>
 
     <div class="d-flex justify-content-between mb-4">
-        <button class="btn btn-success"> Add Recipe </button>
+        <button class="btn btn-success" routerLink="/admin/recipe/add"> Add Recipe </button>
         <input type="text" class="form-control w-25" placeholder="Search Recipe">
     </div>
 
@@ -17,20 +23,21 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>1</td>
-                <td>Moroccan Chickpea Tagine</td>
-                <td>
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStj44q2A1577rL9VGOYIIcUa4AtCw2dcCS5g&s"
-                        alt="" width="70" height="70" class="rounded">
+            @for (item of recipes | paginate: { itemsPerPage: 4, currentPage: p }; track $index) {
+                <tr>
+                    <td>{{item.id}}</td>
+                    <td>{{item.name}}</td>
+                    <td><img [src]="item.image" alt="" height="50px" width="50px"/></td>
+                    <td>{{item.cuisine}}</td>
+                    <td>
+                    <i class="fa-solid fa-pen me-3" routerLink="/admin/recipe/edit/1"></i>
+                    <i class="fa-solid fa-trash" (click)="deleteRecipe(item._id)"></i>
                 </td>
-                <td>Moroccan</td>
-                <td>
-                    <i class="fa-solid fa-pen me-3"></i>
-                    <i class="fa-solid fa-trash"></i>
-                </td>
-            </tr>
+                </tr>
+            }
         </tbody>
     </table>
-
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div>
+    </div>
 </div>

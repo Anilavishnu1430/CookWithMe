@@ -1,11 +1,15 @@
-
-
-<div class="container-fluid p-3 bg-warning">
+<app-admin-header></app-admin-header>
+<div class="row">
+  <div class="col-2">
+    <app-sidebar></app-sidebar>
+  </div>
+  <div class="col-10">
+    <div class="container-fluid p-3 bg-warning">
   <h2 class="text-white text-center">Admin Dashboard</h2>
 </div>
 
 <div class="container my-4 vh-100">
-  <div class="row g-3">
+  <div class="row g-3 mb-5">
     <div class="col">
       <div class="p-4 bg-primary text-white text-center rounded">
         <h5>Users</h5>
@@ -27,3 +31,23 @@
       </div>
     </div>
   </div>
+  <div class="row">
+    <div class="col">
+      <highcharts-chart 
+      Highcharts ="Highcharts" 
+      [options]="chartOptions"
+      style="width: 100%; height: 400px; display: block;">
+  </highcharts-chart>
+    </div>
+    <div class="col">
+      <mat-card class="demo-inline-calendar-card">
+      <mat-calendar [(selected)]="selected"></mat-calendar>
+      </mat-card>
+      <p>Selected date: {{selected()}}</p>
+    </div>
+  </div>
+
+
+
+  </div>
+</div>

@@ -31,7 +31,14 @@ export class Login {
         sessionStorage.setItem("token",token)
         console.log(res);
           sessionStorage.setItem("user",JSON.stringify(res.existingUser))
-        this.router.navigateByUrl("/allrecipes")
+
+          if(res.existingUser.role=="admin"){
+            this.router.navigateByUrl("/admin")
+          }
+          else{
+            this.router.navigateByUrl("")
+          }
+        
       },error:(err:any)=>{
         alert(err.error.message)
         console.log(err);

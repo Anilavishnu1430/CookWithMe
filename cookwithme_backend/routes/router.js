@@ -25,4 +25,9 @@ router.get('/getdownload',jwtMiddleware,downloadController.getDownload)
 
 router.delete('/deletedownload/:id',jwtMiddleware,downloadController.deleteDownload)
 
+router.delete('/deleterecipe/:id',jwtMiddleware,recipeController.deleteRecipe)
+
+router.get('/getallusers',jwtMiddleware,userController.getAllUsers)
+
+
 module.exports = router

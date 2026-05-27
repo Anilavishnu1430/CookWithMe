@@ -3,10 +3,12 @@ import { ActivatedRoute, RouterModule } from '@angular/router';
 import { Api } from '../../services/api';
 import jsPDF from 'jspdf';
 import autoTable from 'jspdf-autotable';
+import { Footer } from "../../components/footer/footer";
+import { Header } from "../../components/header/header";
 
 @Component({
   selector: 'app-viewrecipe',
-  imports: [RouterModule],
+  imports: [RouterModule, Footer, Header],
   templateUrl: './viewrecipe.html',
   styleUrl: './viewrecipe.css',
 })

@@ -22,3 +22,15 @@ exports.getARecipe = async (req, res) => {
         res.status(500).json({ message: "Server error", error: err })
     }
 }
+
+exports.deleteRecipe=async(req,res)=>{
+    console.log("Inside the delete Recipe");
+    const {id} = req.params
+    try{
+        const deleteRecipe = await recipe.deleteOne({_id:id})
+        res.status(200).json({ message:"Recipe deleted",deleteRecipe })
+    }
+    catch(err){
+        res.status(500).json({ message:"server err "+err })
+    }
+}

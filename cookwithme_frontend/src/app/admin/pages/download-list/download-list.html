@@ -1,4 +1,10 @@
-<div class="container-fluid p-4 vh-100">
+<app-admin-header></app-admin-header>
+<div class="row">
+  <div class="col-2">
+    <app-sidebar></app-sidebar>
+  </div>
+  <div class="col-10">
+    <div class="container-fluid p-4 vh-100">
     <h1 class="text-center text-warning mb-5">Download List</h1>
     <table class="table border align-middle text-center">
       <thead class="table-light">
@@ -12,16 +18,23 @@
       </thead>
 
       <tbody>
-        <tr>
-          <td>1</td>
-          <td>recipeId</td>
-          <td>recipeName</td>
-          <td>recipeCuisine</td>
-          <td>count</td>
+        @for (item of downloadArrayList | paginate: { itemsPerPage: 4, currentPage: p };  track $index;  let i=$index) {
+          <tr>
+          <td>{{i+1}}</td>
+          <td>{{item.recipeId}}</td>
+          <td>{{item.name}}</td>
+          <td>{{item.cuisine}}</td>
+          <td>{{item.count}}</td>
         </tr>
+        }
+        
       </tbody>
     </table>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
 </div>
 
 
 
+
+  </div>
+</div>
