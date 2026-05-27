@@ -9,7 +9,7 @@
 
     <div class="d-flex justify-content-between mb-4">
         <button class="btn btn-success" routerLink="/admin/recipe/add"> Add Recipe </button>
-        <input type="text" class="form-control w-25" placeholder="Search Recipe">
+        <input type="text" class="form-control w-25" [(ngModel)]="searchKey" name="searchKey" placeholder="Search Recipe">
     </div>
 
     <table class="table border align-middle text-center">
@@ -23,14 +23,14 @@
             </tr>
         </thead>
         <tbody>
-            @for (item of recipes | paginate: { itemsPerPage: 4, currentPage: p }; track $index) {
+            @for (item of recipes | paginate: { itemsPerPage: 4, currentPage: p } | search : searchKey; track $index) {
                 <tr>
                     <td>{{item.id}}</td>
                     <td>{{item.name}}</td>
                     <td><img [src]="item.image" alt="" height="50px" width="50px"/></td>
                     <td>{{item.cuisine}}</td>
                     <td>
-                    <i class="fa-solid fa-pen me-3" routerLink="/admin/recipe/edit/1"></i>
+                    <i class="fa-solid fa-pen me-3" routerLink="/admin/recipe/edit/item._id"></i>
                     <i class="fa-solid fa-trash" (click)="deleteRecipe(item._id)"></i>
                 </td>
                 </tr>

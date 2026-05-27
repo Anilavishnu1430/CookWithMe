@@ -4,11 +4,12 @@ import { Sidebar } from "../../components/sidebar/sidebar";
 import { RouterLink } from '@angular/router';
 import { Api } from '../../../services/api';
 import {NgxPaginationModule} from 'ngx-pagination';
-
+import { FormsModule } from '@angular/forms';
+import { SearchPipe } from '../../../pipes/search-pipe';
 
 @Component({
   selector: 'app-recipe-list',
-  imports: [AdminHeader, Sidebar,RouterLink,NgxPaginationModule],
+  imports: [AdminHeader, Sidebar,RouterLink,NgxPaginationModule,FormsModule,SearchPipe],
   templateUrl: './recipe-list.html',
   styleUrl: './recipe-list.css',
 })
@@ -18,6 +19,7 @@ export class RecipeList implements OnInit {
   }
   p: number = 1;
   recipes:any = []
+  searchKey:string = ""
   
 
   private apiService = inject(Api)

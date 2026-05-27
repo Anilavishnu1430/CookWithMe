@@ -1,13 +1,13 @@
 <app-header></app-header>
 <div class="row m-5">
     <div class="mb-4 text-start">
-        <button class="btn border border-2" routerLink="/allrecipes">
+        <button class="btn border-2" routerLink="/allrecipes">
             Back to recipe list
         </button>
     </div>
     <div class="col-md-5">
         <img [src]="recipeDetails.image"
-            class="img-fluid rounded" alt="Blueberry Banana Smoothie">
+            class="img-fluid rounded" alt="recipe image">
         <div class="d-flex gap-3 mt-5 justify-content-between">
             <button (click)="addDownload()" class="btn btn-success">Download Recipe</button>
             <button class="btn btn-primary">Save Recipe</button>

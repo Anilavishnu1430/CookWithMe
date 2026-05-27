@@ -22,11 +22,14 @@ export class Login {
   login(){
     const email = this.loginForm.value.email
     const password = this.loginForm.value.password
+
     if(this.loginForm.valid){
       console.log(this.loginForm);
+
       this.apiService.loginAPI({email,password}).subscribe({
         next:(res:any)=>{
         alert(res.message)
+        
         let token = res.token
         sessionStorage.setItem("token",token)
         console.log(res);
@@ -39,7 +42,8 @@ export class Login {
             this.router.navigateByUrl("")
           }
         
-      },error:(err:any)=>{
+      },
+      error:(err:any)=>{
         alert(err.error.message)
         console.log(err);
       }})
