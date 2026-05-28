@@ -51,6 +51,7 @@ exports.loginUser=async(req,res)=>{
     }
 }
 
+//Get All Users
 exports.getAllUsers=async(req,res)=>{
     console.log("Inside the get All Users");
     try{

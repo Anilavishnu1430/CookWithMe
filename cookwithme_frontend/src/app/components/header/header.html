@@ -36,16 +36,36 @@
 
       </ul>
     </div>
-    <div class="dropdown">
-      <button class="btn btn-outline-light dropdown-toggle" type="button" data-bs-toggle="dropdown">
-        <i class="fas fa-user"></i> Hi Anila
-      </button>
+    @if(isLoggedIn){
 
-      <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="userprofile">Profile</a></li>
-        <li><a class="dropdown-item" href="login">Logout</a></li>
-      </ul>
+    <!-- AFTER LOGIN -->
+
+    <div class="dropdown">
+
+        <button
+            class="btn btn-outline-light dropdown-toggle"
+            type="button"
+            data-bs-toggle="dropdown">
+            <i class="fas fa-user"></i>
+            Hi {{user.username}}
+        </button>
+
+        <ul class="dropdown-menu">
+            <li>
+                <a class="dropdown-item" routerLink="/userprofile">
+                    Profile
+                </a>
+            </li>
+            <li>
+                <button class="dropdown-item" (click)="logout()">Logout</button>
+            </li>
+        </ul>
     </div>
+}
+
+@else {
+    <button class="btn btn-outline-light" routerLink="/login">Login</button>
+}
 
   </div>
 

@@ -40,8 +40,10 @@
               <img [src]="item.image" alt="Recipe image"
                    class="card-img-top recipe-img">
               <div class="card-body">
-                <h6>{{item.name}}</h6>
-                <h6><i class="fa-solid fa-trash" (click)="deleteRecipe(item._id)"></i></h6>
+                <h6 class="text-center">{{item.name}}</h6>
+              </div>
+              <div class="ps-4 pb-2">
+                <i class="fa-solid fa-trash" (click)="deleteRecipe(item._id)"></i>
               </div>
             </div>
           </div>
