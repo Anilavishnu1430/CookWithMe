@@ -13,13 +13,14 @@ import { Header } from "../../components/header/header";
   styleUrl: './viewrecipe.css',
 })
 export class Viewrecipe implements OnInit {
-  selectedRecipeId:any
   
   ngOnInit(): void {
     const id = this.activatedRoute.snapshot.params['id']
     
     this.getARecipe(id)
   }
+
+  selectedRecipeId:any
   recipeDetails:any = []
   recipeId:any = ""
 
@@ -77,5 +78,5 @@ export class Viewrecipe implements OnInit {
 
     pdf.output('dataurlnewwindow')
     pdf.save('download-recipe.pdf')
-        }
+  }
 }

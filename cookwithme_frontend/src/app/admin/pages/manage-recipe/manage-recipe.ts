@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AdminHeader } from "../../components/admin-header/admin-header";
 import { Sidebar } from "../../components/sidebar/sidebar";
@@ -9,13 +9,13 @@ import { Sidebar } from "../../components/sidebar/sidebar";
   templateUrl: './manage-recipe.html',
   styleUrl: './manage-recipe.css',
 })
-export class ManageRecipe {
+export class ManageRecipe implements OnInit {
 
-recipeId:any
+  recipeId:any
 
-route = inject(ActivatedRoute);
+  route = inject(ActivatedRoute);
 
-ngOnInit(){
-  this.recipeId = this.route.snapshot.params['id']
-}
+  ngOnInit(): void {
+    this.recipeId = this.route.snapshot.params['id']
+  }
 }
