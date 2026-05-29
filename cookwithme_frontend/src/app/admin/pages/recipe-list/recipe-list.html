@@ -30,7 +30,7 @@
                     <td><img [src]="item.image" alt="" height="50px" width="50px"/></td>
                     <td>{{item.cuisine}}</td>
                     <td>
-                    <i class="fa-solid fa-pen me-3" routerLink="/admin/recipe/edit/item._id"></i>
+                    <i class="fa-solid fa-pen me-3" routerLink="/admin/recipe/edit/{{item._id}}"></i>
                     <i class="fa-solid fa-trash" (click)="deleteRecipe(item._id)"></i>
                 </td>
                 </tr>
