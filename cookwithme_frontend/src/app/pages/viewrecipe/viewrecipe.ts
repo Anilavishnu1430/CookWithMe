@@ -44,7 +44,20 @@ export class Viewrecipe implements OnInit {
     this.apiService.addDownloadRecipeAPI(this.recipeId,this.recipeDetails).subscribe({
       next:(res:any)=>{
         console.log(res);
+        alert(res.message)
         this.generatePDF()
+      },
+      error:(err:any)=>{
+        console.log(err);
+      }
+    })
+  }
+
+  addSave(){
+    this.apiService.addSavedRecipeAPI(this.recipeId,this.recipeDetails).subscribe({
+      next:(res:any)=>{
+        console.log(res);
+        alert(res.message)
       },
       error:(err:any)=>{
         console.log(err);

@@ -3,6 +3,7 @@ const express = require('express')
 const userController = require('../controllers/userController')
 const recipeController = require('../controllers/recipeController')
 const downloadController = require('../controllers/downloadController')
+const saveController = require('../controllers/saveController')
 const jwtMiddleware = require('../middleware/jwtMiddleware')
 
 const router = new express.Router()
@@ -28,6 +29,15 @@ router.get('/getdownload',jwtMiddleware,downloadController.getDownload)
 //delete Download
 router.delete('/deletedownload/:id',jwtMiddleware,downloadController.deleteDownload)
 
+//add SaveRecipe
+router.post('/saveRecipe/:id',jwtMiddleware,saveController.addSaverecipe)
+
+//get all SaveRecipe
+router.get('/getsaveRecipe',jwtMiddleware,saveController.getSaverecipe)
+
+//delete SaveRecipe
+router.delete('/deletesaveRecipe/:id',jwtMiddleware,saveController.deleteSaverecipe)
+
 //delete Recipe
 router.delete('/deleterecipe/:id',jwtMiddleware,recipeController.deleteRecipe)
 
@@ -39,6 +49,12 @@ router.post('/addrecipe',jwtMiddleware,recipeController.addRecipe)
 
 //update Recipe
 router.put('/updaterecipe/:id',jwtMiddleware,recipeController.updateRecipe)
+
+//update Profile
+router.put('/updateprofile',jwtMiddleware,userController.updateProfile)
+
+//getprofile
+router.get('/profile', jwtMiddleware, userController.getProfile)
 
 
 module.exports = router

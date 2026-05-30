@@ -41,6 +41,7 @@ export class RecipeList implements OnInit {
     this.apiService.deleteRecipeAPI(id).subscribe({
       next:(res:any)=>{
         console.log(res);
+        alert(res.message)
         this.getAllrecipes()
       },
       error:(err:any)=>{

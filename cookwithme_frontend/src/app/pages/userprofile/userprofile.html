@@ -2,32 +2,43 @@
 <div class="container mt-5">
   <div class="row g-4">
 
-    <!-- Left Profile -->
     <div class="col-md-4">
       <div class="bg-white p-4 rounded shadow text-center">
         
-        <img src="https://freesvg.org/img/abstract-user-flat-3.png"
+        <img [src]="profileImage || 'https://freesvg.org/img/abstract-user-flat-3.png'"
              class="rounded-circle mb-3 profile-img"
              alt="Profile">
         <h2><strong>Welcome Back</strong> 👋</h2>
+      
         <p class="text-muted">
           Update your profile picture and manage your account.
         </p>
-
-        <button class="btn btn-warning text-white">
+        <button class="btn btn-warning text-white" (click)="openProfileForm()">
           Update Profile
         </button>
+
+        @if(showProfileForm){
+          <input type="text" class="form-control mb-2 mt-3" placeholder="Enter profile image URL"
+            [(ngModel)]="imageInput">
+          <button class="btn btn-warning text-white" (click)="updateProfile()">
+            Save Image
+          </button>
+          <button class="btn btn-warning text-white ms-5" (click)="showProfileForm = false">
+            cancel
+          </button>
+        }
 
       </div>
     </div>
 
-
-    <!-- Right Recipe Cards -->
     <div class="col-md-8">
       <div class="bg-white p-4 rounded shadow">
 
         <div class="d-flex justify-content-between mb-3">
           <h4>Downloaded Recipes 🍽</h4>
+          <span class="bg-warning text-black p-2 fw-semibold rounded" routerLink="/savedrecipe">
+            Saved Recipes
+          </span>
           <span class="bg-warning text-black p-2 fw-semibold rounded">
             {{downloadList.length}} Recipes
           </span>

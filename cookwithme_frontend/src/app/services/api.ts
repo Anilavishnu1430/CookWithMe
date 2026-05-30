@@ -73,4 +73,28 @@ export class Api {
    return this.http.put(`${this.serverUrl}/updaterecipe/${id}`,reqBody,this.appendToken())
   }
 
+  //Add Downloaded Recipe
+  addSavedRecipeAPI(id:any,reqBody:any){
+   return this.http.post(`${this.serverUrl}/saveRecipe/${id}`,reqBody,this.appendToken())
+  }
+
+  //Get All Downloads
+  getSavedRecipeAPI(){
+   return this.http.get(`${this.serverUrl}/getsaveRecipe`,this.appendToken())
+  }
+
+  //delete Download Recipe
+  deleteSavedRecipeAPI(id:any){
+   return this.http.delete(`${this.serverUrl}/deletesaveRecipe/${id}`,this.appendToken())
+  }
+
+  //Update Profile
+  updateProfileAPI(reqBody:any){
+   return this.http.put(`${this.serverUrl}/updateprofile`,reqBody,this.appendToken())
+  }
+
+  //get Profile
+  getProfileAPI(){
+    return this.http.get(`${this.serverUrl}/profile`,this.appendToken())
+  }
 }

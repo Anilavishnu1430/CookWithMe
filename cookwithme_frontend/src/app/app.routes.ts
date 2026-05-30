@@ -5,6 +5,7 @@ import { Register } from './pages/register/register';
 import { Allrecipes } from './pages/allrecipes/allrecipes';
 import { Viewrecipe } from './pages/viewrecipe/viewrecipe';
 import { Userprofile } from './pages/userprofile/userprofile';
+import { SavedRecipe } from './pages/saved-recipe/saved-recipe';
 
 export const routes: Routes = [
     {
@@ -27,5 +28,8 @@ export const routes: Routes = [
     },
     {
         path:'userprofile',component:Userprofile
+    },
+    {
+        path:'savedrecipe',component:SavedRecipe
     }
 ];
